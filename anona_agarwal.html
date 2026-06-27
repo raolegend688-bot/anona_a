@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anona Agarwal — Host · Creator · Personality</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ─────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --cream: #F8F4EF;
+      --cream2: #F0EAE0;
+      --ink: #1A1A1A;
+      --ink-light: #4A4A4A;
+      --ink-muted: #8A8A8A;
+      --terra: #C4622D;
+      --terra-light: #E8875A;
+      --rule: rgba(26,26,26,0.12);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ::selection { background: rgba(196,98,45,0.18); }
+
+    /* ── Scrollbar ─────────────────────────────────── */
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--terra); }
+
+    /* ── Nav ───────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(248,244,239,0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--rule);
+      padding: 0 2.5rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .nav-brand span {
+      font-size: 0.62rem;
+      font-family: var(--font-body);
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      display: block;
+      margin-top: -2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--terra); }
+
+    .nav-cta {
+      padding: 0.55rem 1.4rem;
+      background: var(--ink);
+      color: var(--cream) !important;
+      border-radius: 2px;
+      font-size: 0.72rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 1.5px !important;
+      text-transform: uppercase;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--terra) !important; color: #fff !important; }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--ink);
+      transition: all 0.3s;
+    }
+
+    /* ── Hero ──────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 60px;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 3.5rem 5rem 5rem;
+      border-right: 1px solid var(--rule);
+    }
+
+    .hero-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 2rem;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -1px;
+      margin-bottom: 2rem;
+      color: var(--ink);
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--terra);
+      font-weight: 300;
+    }
+
+    .hero-bio {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--ink-light);
+      max-width: 440px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+
+    .hero-bio strong { color: var(--ink); font-weight: 500; }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .btn-primary {
+      padding: 0.8rem 2rem;
+      background: var(--ink);
+      color: var(--cream);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--terra); }
+
+    .btn-ghost {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--ink-light);
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-ghost:hover { color: var(--terra); border-color: var(--terra); }
+
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--rule);
+    }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.68rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-top: 0.3rem;
+    }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+      background: var(--cream2);
+    }
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: grayscale(8%);
+    }
+    .hero-img-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 40%;
+      background: linear-gradient(to top, var(--cream2), transparent);
+    }
+
+    /* ── Ticker ────────────────────────────────────── */
+    .ticker {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 0.75rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker-track {
+      display: inline-block;
+      animation: ticker 20s linear infinite;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+    }
+    .ticker-sep { margin: 0 2rem; color: var(--terra); }
+    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* ── Section Base ──────────────────────────────── */
+    section { padding: 6rem 5rem; }
+    .section-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 1.25rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+    .section-title em { font-style: italic; color: var(--terra); }
+
+    /* ── About ─────────────────────────────────────── */
+    .about {
+      background: var(--cream2);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+    .about-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .about-img-caption {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      font-size: 0.68rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(248,244,239,0.7);
+      font-weight: 500;
+    }
+
+    .about-text p {
+      font-size: 0.97rem;
+      line-height: 1.85;
+      color: var(--ink-light);
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .about-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--rule);
+    }
+    .meta-item label {
+      font-size: 0.62rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    .meta-item span {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* ── Podcast ───────────────────────────────────── */
+    .podcast { background: var(--cream); }
+
+    .podcast-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .podcast-platforms {
+      display: flex;
+      gap: 1.25rem;
+    }
+    .platform-btn {
+      padding: 0.5rem 1.2rem;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      transition: all 0.2s;
+      background: transparent;
+      cursor: pointer;
+    }
+    .platform-btn:hover { border-color: var(--terra); color: var(--terra); }
+
+    .podcast-featured {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 0;
+      border: 1px solid var(--rule);
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+    }
+
+    .featured-img {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      background: var(--cream2);
+    }
+    .featured-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .podcast-featured:hover .featured-img img { transform: scale(1.04); }
+
+    .featured-content {
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--cream);
+      border-left: 1px solid var(--rule);
+    }
+
+    .ep-tag {
+      font-size: 0.62rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--terra);
+      font-weight: 600;
+    }
+
+    .ep-title {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--ink);
+      margin: 1rem 0;
+    }
+
+    .ep-desc {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--ink-light);
+      font-weight: 300;
+    }
+
+    .ep-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .ep-guest { font-size: 0.82rem; font-weight: 500; color: var(--ink); }
+    .ep-dur { font-size: 0.72rem; color: var(--ink-muted); letter-spacing: 0.5px; }
+
+    .ep-watch {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--terra);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: gap 0.2s;
+    }
+    .ep-watch:hover { gap: 0.7rem; }
+
+    .podcast-list { display: flex; flex-direction: column; gap: 0; }
+    .ep-row {
+      display: grid;
+      grid-template-columns: 80px 1fr auto auto;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--rule);
+      transition: background 0.15s;
+      cursor: pointer;
+    }
+    .ep-row:hover { background: rgba(196,98,45,0.04); }
+    .ep-row:hover { padding-left: 0.5rem; }
+
+    .ep-num {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--ink-muted);
+    }
+
+    .ep-info-title {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+    .ep-info-sub {
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+    }
+
+    .ep-badge {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      color: var(--ink-muted);
+      white-space: nowrap;
+    }
+
+    /* ── Press ─────────────────────────────────────── */
+    .press { background: var(--ink); color: var(--cream); }
+    .press .section-eyebrow { color: var(--terra-light); }
+    .press .section-title { color: var(--cream); }
+
+    .press-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid rgba(255,255,255,0.08);
+      margin-top: 3rem;
+    }
+
+    .press-item {
+      padding: 2.5rem 2rem;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      transition: background 0.2s;
+    }
+    .press-item:last-child { border-right: none; }
+    .press-item:hover { background: rgba(255,255,255,0.04); }
+
+    .press-num {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.15);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .press-name {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 0.75rem;
+    }
+
+    .press-desc {
+      font-size: 0.82rem;
+      line-height: 1.65;
+      color: rgba(248,244,239,0.5);
+      font-weight: 300;
+    }
+
+    .press-year {
+      font-size: 0.62rem;
+      letter-spacing: 2px;
+      color: var(--terra-light);
+      margin-top: 1.5rem;
+      font-weight: 500;
+    }
+
+    /* ── Speaking ──────────────────────────────────── */
+    .speaking {
+      background: var(--cream2);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .speaking-img {
+      position: relative;
+      min-height: 600px;
+      overflow: hidden;
+    }
+    .speaking-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .speaking-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, transparent 60%, var(--cream2));
+    }
+
+    .speaking-content {
+      padding: 6rem 4rem 6rem 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .speaking-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 2.5rem;
+      border: 1px solid var(--rule);
+    }
+
+    .speak-card {
+      padding: 1.75rem 2rem;
+      border-bottom: 1px solid var(--rule);
+      transition: background 0.2s;
+    }
+    .speak-card:last-child { border-bottom: none; }
+    .speak-card:hover { background: rgba(196,98,45,0.04); }
+
+    .speak-type {
+      font-size: 0.6rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--terra);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .speak-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .speak-desc {
+      font-size: 0.82rem;
+      line-height: 1.65;
+      color: var(--ink-muted);
+      font-weight: 300;
+    }
+
+    .speaking-cta {
+      margin-top: 2.5rem;
+    }
+
+    /* ── Contact ───────────────────────────────────── */
+    .contact {
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+    }
+
+    .contact-info {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .contact-row label {
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    .contact-row a, .contact-row span {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--ink);
+      transition: color 0.2s;
+    }
+    .contact-row a:hover { color: var(--terra); }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .form-group label {
+      font-size: 0.65rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      font-weight: 500;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 0.75rem 0;
+      border: none;
+      border-bottom: 1px solid var(--rule);
+      background: transparent;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s;
+      border-radius: 0;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-bottom-color: var(--terra);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--ink-muted); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-group select { cursor: pointer; }
+    .form-group select option { background: var(--cream); }
+
+    .form-full { grid-column: 1 / -1; }
+
+    .btn-submit {
+      padding: 1rem 2.5rem;
+      background: var(--ink);
+      color: var(--cream);
+      border: none;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: background 0.2s;
+      align-self: flex-start;
+      margin-top: 0.5rem;
+    }
+    .btn-submit:hover { background: var(--terra); }
+
+    /* ── Footer ────────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 3rem 5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+    .footer-brand span {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(248,244,239,0.4);
+      margin-top: 0.25rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .footer-links a {
+      font-size: 0.72rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(248,244,239,0.5);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--terra-light); }
+
+    .footer-copy {
+      font-size: 0.68rem;
+      color: rgba(248,244,239,0.3);
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Mobile ────────────────────────────────────── */
+    @media (max-width: 900px) {
+      section { padding: 4rem 1.5rem; }
+
+      nav { padding: 0 1.5rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 3rem 1.5rem; border-right: none; }
+      .hero-right { min-height: 50vh; }
+
+      .about { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.5rem; }
+      .about-img-wrap { aspect-ratio: 4/3; }
+
+      .podcast-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+      .podcast-featured { grid-template-columns: 1fr; }
+      .featured-img { aspect-ratio: 16/9; }
+      .featured-content { border-left: none; border-top: 1px solid var(--rule); }
+
+      .press-grid { grid-template-columns: 1fr 1fr; }
+      .press-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+
+      .speaking { grid-template-columns: 1fr; }
+      .speaking-img { min-height: 300px; }
+      .speaking-content { padding: 3rem 1.5rem; }
+
+      .contact { grid-template-columns: 1fr; gap: 3rem; padding: 3rem 1.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+
+      footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2.5rem 1.5rem; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+
+      .ep-row { grid-template-columns: 50px 1fr; }
+      .ep-badge, .ep-dur { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Nav ──────────────────────────────────────── -->
+  <nav>
+    <div class="nav-brand">
+      Anona Agarwal
+      <span>Host · Creator · Personality</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#podcast">Podcast</a></li>
+      <li><a href="#press">Press</a></li>
+      <li><a href="#speaking">Speaking</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="nav-cta">Work with me</a></li>
+    </ul>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── Hero ─────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Host · Creator · Personality</p>
+      <h1 class="hero-headline">
+        Conversations<br>that <em>move</em><br>culture forward.
+      </h1>
+      <p class="hero-bio">
+        I'm <strong>Anona Agarwal</strong> — host of <strong>Level Up with Anona</strong>, a podcast about the people, ideas and unguarded moments that shape modern India. Formerly with MX Player, Times of India and Divya Bhaskar.
+      </p>
+      <div class="hero-actions">
+        <a href="https://youtube.com/@anonaagarwal" target="_blank" class="btn-primary">Listen to the podcast</a>
+        <a href="#contact" class="btn-ghost">Collaborate →</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">76K</div>
+          <div class="stat-label">Instagram</div>
+        </div>
+        <div>
+          <div class="stat-num">75K</div>
+          <div class="stat-label">YouTube</div>
+        </div>
+        <div>
+          <div class="stat-num">48+</div>
+          <div class="stat-label">Episodes</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img
+        class="hero-img"
+        src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=85"
+        alt="Anona Agarwal"
+      />
+      <div class="hero-img-overlay"></div>
+    </div>
+  </section>
+
+  <!-- ── Ticker ────────────────────────────────────── -->
+  <div class="ticker">
+    <div class="ticker-track">
+      Level Up with Anona<span class="ticker-sep">✦</span>
+      Times of India<span class="ticker-sep">✦</span>
+      MX Player<span class="ticker-sep">✦</span>
+      Divya Bhaskar<span class="ticker-sep">✦</span>
+      VAANI Studio<span class="ticker-sep">✦</span>
+      BNI India<span class="ticker-sep">✦</span>
+      PressPlay<span class="ticker-sep">✦</span>
+      76K Instagram<span class="ticker-sep">✦</span>
+      75K YouTube<span class="ticker-sep">✦</span>
+      48+ Episodes<span class="ticker-sep">✦</span>
+      Level Up with Anona<span class="ticker-sep">✦</span>
+      Times of India<span class="ticker-sep">✦</span>
+      MX Player<span class="ticker-sep">✦</span>
+      Divya Bhaskar<span class="ticker-sep">✦</span>
+      VAANI Studio<span class="ticker-sep">✦</span>
+      BNI India<span class="ticker-sep">✦</span>
+      PressPlay<span class="ticker-sep">✦</span>
+      76K Instagram<span class="ticker-sep">✦</span>
+      75K YouTube<span class="ticker-sep">✦</span>
+      48+ Episodes<span class="ticker-sep">✦</span>
+    </div>
+  </div>
+
+  <!-- ── About ─────────────────────────────────────── -->
+  <section class="about" id="about">
+    <div class="about-img-wrap">
+      <img
+        class="about-img"
+        src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=700&q=85"
+        alt="Anona Agarwal — candid portrait"
+      />
+      <div class="about-img-caption">Ahmedabad · India</div>
+    </div>
+    <div class="about-text">
+      <p class="section-eyebrow">About</p>
+      <h2 class="section-title">A storyteller raised on deadlines, sport, and a <em>love of the long form.</em></h2>
+      <p>I started in newsrooms — Times of India, Divya Bhaskar, MX Player and PressPlay — where I learned that the best stories never sit on the surface.</p>
+      <p>Today I host Level Up with Anona, a long-form podcast that invites doctors, founders, athletes and artists into honest, unrushed conversation.</p>
+      <p>A national-level table tennis player and now Growth & Strategy Head at VAANI Studio, I sit at the intersection of media, performance and the creator economy.</p>
+      <div class="about-meta">
+        <div class="meta-item"><label>Hometown</label><span>Ahmedabad</span></div>
+        <div class="meta-item"><label>Studio</label><span>VAANI</span></div>
+        <div class="meta-item"><label>Format</label><span>Long-form</span></div>
+        <div class="meta-item"><label>Languages</label><span>English · Hindi · Gujarati</span></div>
+        <div class="meta-item"><label>Beats</label><span>Health · Culture · Business</span></div>
+        <div class="meta-item"><label>Sport</label><span>Table Tennis · National</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Podcast ────────────────────────────────────── -->
+  <section class="podcast" id="podcast">
+    <div class="podcast-header">
+      <div>
+        <p class="section-eyebrow">The Podcast</p>
+        <h2 class="section-title">Level Up<br>with Anona</h2>
+      </div>
+      <div class="podcast-platforms">
+        <a href="https://youtube.com/@anonaagarwal" target="_blank" class="platform-btn">YouTube</a>
+        <a href="#" class="platform-btn">Spotify</a>
+        <a href="#" class="platform-btn">Apple</a>
+      </div>
+    </div>
+
+    <!-- Featured Episode -->
+    <div class="podcast-featured">
+      <div class="featured-img">
+        <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=700&q=80" alt="Featured episode" />
+      </div>
+      <div class="featured-content">
+        <div>
+          <p class="ep-tag">Featured · EP 048</p>
+          <h3 class="ep-title">The Science of Weight Loss — what the experts get wrong.</h3>
+          <p class="ep-desc">A senior bariatric surgeon, a creator and an honest conversation about the role exercise actually plays — and India's quietly growing obesity epidemic.</p>
+        </div>
+        <div class="ep-meta">
+          <div>
+            <div class="ep-guest">Dr. Manish Khaitan</div>
+            <div class="ep-dur">58 min · Medicine</div>
+          </div>
+          <a href="https://youtube.com/@anonaagarwal" target="_blank" class="ep-watch">Watch episode →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Episode List -->
+    <div class="podcast-list">
+      <div class="ep-row">
+        <div class="ep-num">047</div>
+        <div>
+          <div class="ep-info-title">A Surgery Like No Other: The World Held Its Breath</div>
+          <div class="ep-info-sub">Dr. Chirag · Neurosurgeon</div>
+        </div>
+        <span class="ep-badge">Medicine</span>
+        <span class="ep-dur">1 hr 12</span>
+      </div>
+      <div class="ep-row">
+        <div class="ep-num">046</div>
+        <div>
+          <div class="ep-info-title">Health, Wealth & Relationships — The Happy Hour Edit</div>
+          <div class="ep-info-sub">Dr. Anshi Rathod</div>
+        </div>
+        <span class="ep-badge">Lifestyle</span>
+        <span class="ep-dur">46 min</span>
+      </div>
+      <div class="ep-row">
+        <div class="ep-num">045</div>
+        <div>
+          <div class="ep-info-title">Extrovert or Introvert — What Are You, Really?</div>
+          <div class="ep-info-sub">Roundtable</div>
+        </div>
+        <span class="ep-badge">Culture</span>
+        <span class="ep-dur">39 min</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Press ──────────────────────────────────────── -->
+  <section class="press" id="press">
+    <p class="section-eyebrow">Media Features</p>
+    <h2 class="section-title">Seen, heard, <em>quoted.</em></h2>
+    <div class="press-grid">
+      <div class="press-item">
+        <div class="press-num">01</div>
+        <div class="press-name">Times of India</div>
+        <p class="press-desc">On the new long-form India listens to.</p>
+        <div class="press-year">2024</div>
+      </div>
+      <div class="press-item">
+        <div class="press-num">02</div>
+        <div class="press-name">MX Player</div>
+        <p class="press-desc">The host bringing experts back into the chat.</p>
+        <div class="press-year">2024</div>
+      </div>
+      <div class="press-item">
+        <div class="press-num">03</div>
+        <div class="press-name">Divya Bhaskar</div>
+        <p class="press-desc">Voices of modern Gujarat — a profile.</p>
+        <div class="press-year">2023</div>
+      </div>
+      <div class="press-item">
+        <div class="press-num">04</div>
+        <div class="press-name">PressPlay</div>
+        <p class="press-desc">Inside Level Up with Anona — studio notes.</p>
+        <div class="press-year">2023</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Speaking ───────────────────────────────────── -->
+  <section class="speaking" id="speaking">
+    <div class="speaking-img">
+      <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=700&q=80" alt="Anona speaking on stage" />
+    </div>
+    <div class="speaking-content">
+      <p class="section-eyebrow">Speaking & Collaboration</p>
+      <h2 class="section-title">Bring the <em>conversation</em> to your stage.</h2>
+      <p style="font-size:0.9rem;color:var(--ink-light);line-height:1.75;margin-bottom:2rem;font-weight:300;">Available for keynotes, hosting, panel moderation and integrated brand partnerships. I work with a select roster of brands and organisers each quarter.</p>
+
+      <div class="speaking-cards">
+        <div class="speak-card">
+          <div class="speak-type">Keynote</div>
+          <div class="speak-title">Keynote Speaking</div>
+          <p class="speak-desc">Stage talks on storytelling, the creator economy and building media that matters. Available for summits, festivals and corporate offsites across India and abroad.</p>
+        </div>
+        <div class="speak-card">
+          <div class="speak-type">Partnership</div>
+          <div class="speak-title">Brand Partnerships</div>
+          <p class="speak-desc">Long-form integrated campaigns across podcast, Instagram (76K) and YouTube (75K). Categories: wellness, finance, lifestyle, beauty, hospitality.</p>
+        </div>
+        <div class="speak-card">
+          <div class="speak-type">Hosting</div>
+          <div class="speak-title">Hosting & Moderation</div>
+          <p class="speak-desc">On-stage hosting, fireside chats and panel moderation for premium brand events, awards and launches.</p>
+        </div>
+      </div>
+
+      <div class="speaking-cta">
+        <a href="#contact" class="btn-primary">Send a brief →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact ────────────────────────────────────── -->
+  <section class="contact" id="contact">
+    <div class="contact-left">
+      <p class="section-eyebrow">Contact</p>
+      <h2 class="section-title">Let's make something people <em>talk about.</em></h2>
+      <p style="font-size:0.9rem;color:var(--ink-light);line-height:1.75;margin-bottom:2rem;font-weight:300;">For collaborations, podcast guesting, speaking engagements and press — write in below or reach out directly. I read every note.</p>
+      <div class="contact-info">
+        <div class="contact-row">
+          <label>Bookings</label>
+          <a href="mailto:hello@anonaagarwal.in">hello@anonaagarwal.in</a>
+        </div>
+        <div class="contact-row">
+          <label>Press</label>
+          <a href="mailto:press@anonaagarwal.in">press@anonaagarwal.in</a>
+        </div>
+        <div class="contact-row">
+          <label>Studio</label>
+          <span>VAANI · Ahmedabad</span>
+        </div>
+        <div class="contact-row">
+          <label>Social</label>
+          <a href="https://instagram.com/levelupwithanona" target="_blank">@levelupwithanona</a>
+        </div>
+      </div>
+    </div>
+
+    <form class="contact-form" action="https://formspree.io/f/xpqgdbny" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" name="name" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="your@email.com" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Brand / Organisation</label>
+          <input type="text" name="brand" placeholder="Company name" />
+        </div>
+        <div class="form-group">
+          <label>Budget (optional)</label>
+          <input type="text" name="budget" placeholder="Approximate range" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Purpose</label>
+        <select name="purpose">
+          <option value="">Select purpose</option>
+          <option>Podcast guest</option>
+          <option>Brand partnership</option>
+          <option>Keynote speaking</option>
+          <option>Hosting & moderation</option>
+          <option>Press inquiry</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tell me a little more</label>
+        <textarea name="message" placeholder="A few lines about what you have in mind…"></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Send the brief →</button>
+    </form>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────── -->
+  <footer>
+    <div class="footer-brand">
+      Anona Agarwal
+      <span>Podcaster · Content creator · Media personality · Ahmedabad, IN</span>
+    </div>
+    <div class="footer-links">
+      <a href="https://instagram.com/levelupwithanona" target="_blank">Instagram</a>
+      <a href="https://youtube.com/@anonaagarwal" target="_blank">YouTube</a>
+      <a href="https://linkedin.com/in/anonaagarwal" target="_blank">LinkedIn</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 Anona Agarwal. All rights reserved.</div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    function toggleMenu() {
+      const links = document.querySelector('.nav-links');
+      links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+      links.style.flexDirection = 'column';
+      links.style.position = 'absolute';
+      links.style.top = '60px';
+      links.style.left = '0';
+      links.style.right = '0';
+      links.style.background = 'rgba(248,244,239,0.97)';
+      links.style.padding = '1.5rem 2rem';
+      links.style.borderBottom = '1px solid rgba(26,26,26,0.08)';
+      links.style.backdropFilter = 'blur(16px)';
+      links.style.gap = '1rem';
+    }
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        // Close mobile menu
+        const links = document.querySelector('.nav-links');
+        if (window.innerWidth < 900) links.style.display = 'none';
+      });
+    });
+
+    // Subtle scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.ep-row, .press-item, .speak-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(16px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
